@@ -1,35 +1,40 @@
 <?php
 include('conexao.php');
 
-if (!isset($_SESSION)) {
-    session_start();
+session_start();
+
+if (isset($_SESSION['id'])) {
+    header('Location/index.php');
+    exit(); 
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    if (isset($_POST['email']) && isset($_POST['senha'])) {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+require_once __DIR__ . '/config/database.php';
 
-        try {
-            $sql = "SELECT * FROM usuarios WHERE email = :email";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
+$erro = '';
 
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $senha = trim($_POST['senha'] ?? '');
 
-            if ($usuario && password_verify($senha, $usuario['senha'])) {
-                $_SESSION['id'] = $usuario['id'];
-                $_SESSION['nome'] = $usuario['nome'];
+    if (empty($email) || empty($senha)) {
+        $erro = 'Por favor, preencha o e-mail e a senha.';
 
-                header("Location: index.php");
-                exit();
-            } else {
-                $erro = "E-mail ou senha inválidos.";
-            }
-        } catch (PDOException $e) {
-            $erro = "Erro no banco de dados: " . $e->getMessage();
+    } else {
+        $pdo = $conn;
+        $stmt = $pdo->prepare("SELECT id, nome, email, senha FROM usuarios WHERE email = :email LIMIT 1");
+        $stmt->execute([':email' => $email]);
+        $usuario = $stmt->fetch();
+
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            $_SESSION['id']    = $usuario['id'];
+            $_SESSION['senha']  = $usuario['senha'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+
+            header('Location: /index.php');
+            exit();
+
+        } else {
+            $erro = 'E-mail ou senha inválidos. Tente novamente.';
         }
     }
 }
