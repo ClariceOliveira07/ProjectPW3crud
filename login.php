@@ -4,13 +4,9 @@ include('conexao.php');
 session_start();
 
 if (isset($_SESSION['id'])) {
-    header('Location/index.php');
+    header('Location: index.php');
     exit(); 
 }
-
-require_once __DIR__ . '/config/database.php';
-
-$erro = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
@@ -28,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($usuario && password_verify($senha, $usuario['senha'])) {
             $_SESSION['id']    = $usuario['id'];
             $_SESSION['senha']  = $usuario['senha'];
-            $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['email'] = $usuario['email'];
 
-            header('Location: /index.php');
+            header('Location: index.php');
             exit();
 
         } else {

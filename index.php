@@ -1,6 +1,11 @@
 <?php
-include('conexao.php');
 include('protege.php'); 
+include_once ('conexao.php');
+
+$stmt = $conn->prepare("SELECT * FROM categorias");
+$stmt->execute();   
+$inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 
 <!DOCTYPE html>
