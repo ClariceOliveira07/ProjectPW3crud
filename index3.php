@@ -20,7 +20,7 @@ $inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Chegada</th>
+                <th>Entrada</th>
                 <th>Saída</th>
                 <th>Ação</th>
             </tr>
