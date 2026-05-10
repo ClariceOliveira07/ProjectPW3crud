@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     <title>Adicionar Funcionários</title>
 </head>
 <body>
-    <h1>Adicionar Funcionários</h1>
+    <h1>Adicionar Funcionário</h1>
     <form method="post">
         <label for="nome">Nome completo:</label>
         <input type="text" name="nome" placeholder="Nome" required>
