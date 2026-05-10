@@ -1,6 +1,7 @@
 <?php
-include('protege.php'); 
-include_once ('conexao.php');
+
+require('protege.php'); 
+require_once('conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM categorias");
 $stmt->execute();   

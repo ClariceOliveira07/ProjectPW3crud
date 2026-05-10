@@ -1,5 +1,5 @@
 <?php
-include_once 'conexao.php';
+require_once ('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     $stmt = $conn->prepare("INSERT INTO funcionarios (nome, dt_nasc) VALUES (:nome, :dt_nasc)");
@@ -20,10 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
 <body>
     <h1>Adicionar Funcionários</h1>
     <form method="post">
-        <label for="nome">Nome:</label>
+        <label for="nome">Nome completo:</label>
         <input type="text" name="nome" placeholder="Nome" required>
+        <br>
         <label for="dt_nasc">Data de Nascimento:</label>
         <input type="date" name="dt_nasc">
+        <br>
         <button type="submit">Adicionar</button>
     </form>
     <a href="index2.php">Voltar</a>

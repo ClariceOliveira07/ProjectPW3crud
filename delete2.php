@@ -1,6 +1,6 @@
 <?php
 
-include_once 'conexao.php';
+require_once ('../conexao.php');
 
 if(isset($_GET['id'])) {
     $stmt = $conn->prepare("DELETE FROM funcionarios WHERE id = :id");

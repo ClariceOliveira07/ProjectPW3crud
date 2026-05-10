@@ -1,9 +1,8 @@
 <?php
 
-include('protege.php'); 
-include_once ('conexao.php');
+require_once ('../conexao.php');
 
-$stmt = $conn->prepare("SELECT * FROM categorias");
+$stmt = $conn->prepare("SELECT * FROM funcionarios");
 $stmt->execute();   
 $inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
 
