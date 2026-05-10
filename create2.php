@@ -1,7 +1,7 @@
 <?php
 include_once 'conexao.php';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'] && isset($_POST['dt_nasc'])) {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     $stmt = $conn->prepare("INSERT INTO funcionarios (nome, dt_nasc) VALUES (:nome, :dt_nasc)");
     $stmt->bindValue(':nome', $_POST['nome']);
     $stmt->bindValue(':dt_nasc', $_POST['dt_nasc']);
@@ -20,8 +20,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'] && isset($_POST[
 <body>
     <h1>Adicionar Funcionários</h1>
     <form method="post">
+        <label for="nome">Nome:</label>
         <input type="text" name="nome" placeholder="Nome" required>
-        <input type="date" name="data" placeholder="00/00/0000" required>
+        <label for="dt_nasc">Data de Nascimento:</label>
+        <input type="date" name="dt_nasc">
         <button type="submit">Adicionar</button>
     </form>
     <a href="index2.php">Voltar</a>
