@@ -4,7 +4,7 @@ require_once ('../conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM funcionarios");
 $stmt->execute();   
-$inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
+$inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -20,6 +20,7 @@ $inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Data de nascimento</th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -28,6 +29,7 @@ $inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
             <tr>
                 <td><?php echo $ini['id']; ?></td>
                 <td><?php echo $ini['nome']; ?></td>
+                <td><?php echo $ini['dt_nasc']; ?></td>
                 <td>
                     <a href="delete2.php?id=<?php echo $ini['id']; ?>"><button>Deletar</button></a>
                     <a href="story2.php?id=<?php echo $ini['id']; ?>"><button>Editar</button></a>
