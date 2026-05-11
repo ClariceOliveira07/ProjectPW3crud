@@ -2,11 +2,12 @@
 require_once ('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
-    $stmt = $conn->prepare("UPDATE funcionarios SET nome = :nome, dt_nasc = :dt_nasc WHERE id = :id");
+    $stmt = $conn->prepare("UPDATE horarios SET nome = :nome, hr_chegada = :hr_chegada, hr_saida = :hr_saida  WHERE id = :id");
     $stmt->bindValue(':nome', $_POST['nome']);
-    $stmt->bindValue(':dt_nasc', $_POST['dt_nasc']);
+    $stmt->bindValue(':hr_chegada', $_POST['hr_chegada']);
+    $stmt->bindValue(':hr_saida', $_POST['hr_saida']);
     $stmt->execute();
-    header('Location: index2.php');
+    header('Location: index3.php');
     exit();
 }
 
@@ -15,19 +16,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Atualizar Funcionários</title>
+    <title>Atualizar Horários</title>
 </head>
 <body>
-    <h1>Atualizar Funcionário</h1>
+    <h1>Atualizar Horários</h1>
     <form method="post">
         <label for="nome">Nome completo:</label>
         <input type="text" name="nome" placeholder="Nome" required>
         <br>
-        <label for="dt_nasc">Data de Nascimento:</label>
-        <input type="date" name="dt_nasc">
+        <label for="hr_chegada">Horário de entrada:</label>
+        <input type="time" name="hr_chegada">
+        <br>
+        <label for="hr_saida">Horário de saída:</label>
+        <input type="time" name="hr_saida">
         <br>
         <button type="submit">Atualizar</button>
     </form>
-    <a href="index2.php">Voltar</a>
+    <a href="index3.php">Voltar</a>
 </body>
 </html>

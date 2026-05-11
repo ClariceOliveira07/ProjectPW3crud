@@ -2,7 +2,7 @@
 require_once ('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
-    $stmt = $conn->prepare("INSERT INTO horarios (nome, hr_chegada, hr_saida) VALUES (:nome, :hr_chegada, hr_saida)");
+    $stmt = $conn->prepare("INSERT INTO horarios (nome, hr_chegada, hr_saida) VALUES (:nome, :hr_chegada, :hr_saida)");
     $stmt->bindValue(':nome', $_POST['nome']);
     $stmt->bindValue(':hr_chegada', $_POST['hr_chegada']);
     $stmt->bindValue(':hr_saida', $_POST['hr_saida']);
@@ -25,10 +25,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
         <input type="text" name="nome" placeholder="Nome" required>
         <br>
         <label for="hr_chegada">Horário de entrada:</label>
-        <input type="date" name="hr_chegada">
+        <input type="time" name="hr_chegada">
         <br>
         <label for="hr_saida">Horário de saída:</label>
-        <input type="date" name="hr_saida">
+        <input type="time" name="hr_saida">
         <br>
         <button type="submit">Adicionar</button>
     </form>
