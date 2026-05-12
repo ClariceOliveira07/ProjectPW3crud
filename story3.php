@@ -2,7 +2,7 @@
 require_once ('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
-    $stmt = $conn->prepare("UPDATE horarios SET nome = :nome, hr_chegada = :hr_chegada, hr_saida = :hr_saida  WHERE id = :id");
+    $stmt = $conn->prepare("UPDATE horarios SET hr_chegada = :hr_chegada, hr_saida = :hr_saida  WHERE id = :id");
     $stmt->bindValue(':nome', $_POST['nome']);
     $stmt->bindValue(':hr_chegada', $_POST['hr_chegada']);
     $stmt->bindValue(':hr_saida', $_POST['hr_saida']);

@@ -4,7 +4,7 @@ require_once ('../conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM setores");
 $stmt->execute();   
-$inicio = $stmt->fetchAll(PDO::FETCH_OBJ);
+$inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
