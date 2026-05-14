@@ -30,13 +30,14 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden">
             
             <div class="p-6 border-b border-orange-50 flex justify-between items-center bg-white">
-                <h2 class="text-xl font-semibold text-slate-700">Lista de Funcionários</h2>
+                <h2 class="text-xl font-semibold text-slate-700">Tabela de Funcionários</h2>
                 <a href="create2.php" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg font-bold transition duration-300 shadow-sm flex items-center gap-2">
                     <span class="text-lg">+</span> Adicionar Novo
                 </a>
             </div>
             
-    <table class="w-full text-left border-collapse">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
         <thead class="bg-orange-50/50 text-slate-500 text-xs uppercase tracking-wider">
             <tr>
                 <th class="px-6 py-4 font-semibold">ID</th>
@@ -60,6 +61,12 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>
             <?php endforeach; ?>
         </tbody>
-    </table>
+      </table>
+    </div>
+    </div>
+    <footer class="mt-8 text-center text-slate-400 text-sm">
+        &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Web
+    </footer>
+    </main>
 </body>
 </html>
