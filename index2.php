@@ -12,8 +12,12 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
     <title>Funcionários</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #fdfaf3; } 
+    </style>
 </head>
-<body>
+<body class="text-slate-800 font-sans min-h-screen">
     <h1>Funcionários</h1>
     <table>
         <thead>
@@ -30,9 +34,9 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $ini['id']; ?></td>
                 <td><?php echo $ini['nome']; ?></td>
                 <td><?php echo $ini['dt_nasc']; ?></td>
-                <td>
-                    <a href="delete2.php?id=<?php echo $ini['id']; ?>"><button>Deletar</button></a>
-                    <a href="story2.php?id=<?php echo $ini['id']; ?>"><button>Editar</button></a>
+                <td class="px-6 py-4 text-center">
+                    <a href="delete2.php?id=<?php echo $ini['id']; ?>" class="text-red-400 hover:text-red-600 font-bold text-sm transition" onclick="return confirm('Tem certeza que deseja deletar?')"><button>Deletar</button></a>
+                    <a href="story2.php?id=<?php echo $ini['id']; ?>" class="text-sky-500 hover:text-sky-700 font-bold text-sm transition"><button>Editar</button></a>
                 </td>
             </tr>
             <?php endforeach; ?>
