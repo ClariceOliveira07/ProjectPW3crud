@@ -3,11 +3,10 @@
 require_once ('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
-    $stmt = $conn->prepare("INSERT INTO funcionarios (nome, dt_nasc) VALUES (:nome, :dt_nasc)");
-    $stmt->bindValue(':nome', $_POST['nome']);
-    $stmt->bindValue(':dt_nasc', $_POST['dt_nasc']);
+    $stmt = $conn->prepare("INSERT INTO setores (setor) VALUES (:setor)");
+    $stmt->bindValue(':setor', $_POST['setor']);
     $stmt->execute();
-    header('Location: index2.php');
+    header('Location: index1.php');
     exit();
 }
 
@@ -16,19 +15,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Adicionar Funcionários</title>
+    <title>Adicionar Setores</title>
 </head>
 <body>
-    <h1>Adicionar Funcionários</h1>
+    <h1>Adicionar Setor</h1>
     <form method="post">
-        <label for="nome">Nome completo:</label>
-        <input type="text" name="nome" placeholder="Nome" required>
-        <br>
-        <label for="dt_nasc">Data de Nascimento:</label>
-        <input type="date" name="dt_nasc">
+        <label for="nome">Setor:</label>
+        <input type="text" name="setor" placeholder="Setor" required>
         <br>
         <button type="submit">Adicionar</button>
     </form>
-    <a href="index2.php">Voltar</a>
+    <a href="index1.php">Voltar</a>
 </body>
 </html>

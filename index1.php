@@ -29,14 +29,14 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $ini['id']; ?></td>
                 <td><?php echo $ini['setor']; ?></td>
                 <td>
-                    <a href="delete2.php?id=<?php echo $ini['id']; ?>"><button>Deletar</button></a>
-                    <a href="story2.php?id=<?php echo $ini['id']; ?>"><button>Editar</button></a>
+                    <a href="delete1.php?id=<?php echo $ini['id']; ?>"><button>Deletar</button></a>
+                    <a href="story1.php?id=<?php echo $ini['id']; ?>"><button>Editar</button></a>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
     <br>
-    <a href="create2.php">Adicionar</a>
+    <a href="create1.php">Adicionar</a>
 </body>
 </html>
