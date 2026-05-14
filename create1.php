@@ -2,7 +2,7 @@
 
 require_once ('../conexao.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setor'])) {
     $stmt = $conn->prepare("INSERT INTO setores (setor) VALUES (:setor)");
     $stmt->bindValue(':setor', $_POST['setor']);
     $stmt->execute();
