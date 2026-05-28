@@ -48,19 +48,25 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tbody class="divide-y divide-orange-50">
             <?php foreach($inicio as $ini): ?>
             <tr class="hover:bg-sky-50/30 transition-colors">
-                <td><?php echo $ini['id']; ?></td>
-                <td><?php echo $ini['nome']; ?></td>
-                <td><?php echo $ini['hr_chegada']; ?></td>
-                <td><?php echo $ini['hr_saida']; ?></td>
-                <td>
-                    <a href="delete3.php?id=<?php echo $ini['id']; ?>"><button>Deletar</button></a>
-                    <a href="story3.php?id=<?php echo $ini['id']; ?>"><button>Editar</button></a>
+                <td class="px-6 py-4 text-sm text-slate-500"><?php echo $ini['id']; ?></td>
+                <td class="px-6 py-4 font-medium text-slate-700"><?php echo $ini['nome']; ?></td>
+                <td class="px-6 py-4 text-center text-slate-600"><?php echo $ini['hr_chegada']; ?></td>
+                <td class="px-6 py-4 text-center text-slate-600"><?php echo $ini['hr_saida']; ?></td>
+                <td class="px-6 py-4 text-center">
+                    <div class="flex justify-center gap-3">
+                        <a href="delete3.php?id=<?php echo $ini['id']; ?>" class="text-red-400 hover:text-red-600 font-bold text-sm transition" onclick="return confirm('Tem certeza que deseja deletar?')"><button>Deletar</button></a>
+                        <a href="story3.php?id=<?php echo $ini['id']; ?>" class="text-sky-500 hover:text-sky-700 font-bold text-sm transition"><button>Editar</button></a>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
-    </table>
-    <br>
-    <a href="create3.php">Adicionar</a>
+      </table>
+    </div>
+    </div>
+    <footer class="mt-8 text-center text-slate-400 text-sm">
+        &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Web
+    </footer>
+    </main>
 </body>
 </html>
