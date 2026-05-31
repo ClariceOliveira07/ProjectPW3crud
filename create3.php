@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
 <body>
     <header class="bg-sky-400 p-8 shadow-md">
         <div class="container mx-auto">
-            <h1 class="text-white text-3xl font-bold tracking-tight">Novos Horários</h1>
+            <h1 class="text-white text-3xl font-bold tracking-tight">Horário</h1>
             <p class="text-sky-50 mt-1 opacity-90">Insira as informações</p>
         </div>
     </header>
@@ -43,19 +43,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
         <input type="text" name="nome" placeholder="Nome" required class="w-full px-4 py-2 border border-orange-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent transition">
       </div>
         <br>
-      </div>
-        <label for="hr_chegada" class="block text-sm font-medium text-slate-600 mb-2">Horário de entrada:</label>
+      <div>
+        <label for="dt_nasc" class="block text-sm font-medium text-slate-600 mb-2">Horário de entrada:</label>
         <input type="time" name="hr_chegada" class="w-full px-4 py-2 border border-orange-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent transition">
       </div>
         <br>
-      </div>
-        <label for="hr_saida" class="block text-sm font-medium text-slate-600 mb-2">Horário de saída:</label>
+      <div>
+        <label for="dt_nasc" class="block text-sm font-medium text-slate-600 mb-2">Horário de saída:</label>
         <input type="time" name="hr_saida" class="w-full px-4 py-2 border border-orange-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent transition">
       </div>
         <br>
       <div class="pt-4 flex flex-col gap-3">
-        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg shadow-sm transition duration-300">Adicionar funcionário</button>
-        <a href="index2.php" class="w-full text-center text-slate-400 hover:text-slate-600 font-medium py-2 transition">Voltar</a>
+        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg shadow-sm transition duration-300">Adicionar</button>
+        <a href="index3.php" class="w-full text-center text-slate-400 hover:text-slate-600 font-medium py-2 transition">Voltar</a>
       </div>
     </form>
    </div>
