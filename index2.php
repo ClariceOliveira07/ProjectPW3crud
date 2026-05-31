@@ -20,8 +20,23 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body class="text-slate-800 font-sans min-h-screen">
     <header class="bg-sky-400 p-8 shadow-md">
         <div class="container mx-auto">
+          <div class="container mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+           <div class="block">
             <h1 class="text-white text-3xl font-bold tracking-tight">Sistema BLUEY</h1>
             <p class="text-sky-50 mt-1 opacity-90">Gerenciamento de RH - Projeto PW3</p>
+           </div>
+            <div class="flex gap-3">
+              <a href="../index.php" class="bg-white/20 hover:bg-white/30 text-white font-medium px-4 py-2 rounded-lg transition-colors border border-white/10 shadow-sm text-sm flex items-center gap-2">
+                Início
+              </a>
+              <a href="../crud_horario/index3.php" class="bg-white/20 hover:bg-white/30 text-white font-medium px-4 py-2 rounded-lg transition-colors border border-white/10 shadow-sm text-sm flex items-center gap-2">
+                Horários
+              </a>
+              <a href="../crud_setor/index1.php" class="bg-white/20 hover:bg-white/30 text-white font-medium px-4 py-2 rounded-lg transition-colors border border-white/10 shadow-sm text-sm flex items-center gap-2">
+                Setores
+              </a>
+            </div>
+          </div>
         </div>
     </header>
 

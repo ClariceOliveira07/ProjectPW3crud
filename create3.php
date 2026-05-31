@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     <header class="bg-sky-400 p-8 shadow-md">
         <div class="container mx-auto">
             <h1 class="text-white text-3xl font-bold tracking-tight">Horário</h1>
-            <p class="text-sky-50 mt-1 opacity-90">Insira as informações</p>
+            <p class="text-sky-50 mt-1 opacity-90">Insira as informações do novo horário</p>
         </div>
     </header>
 
