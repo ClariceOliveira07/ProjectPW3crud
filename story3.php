@@ -58,23 +58,3 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
         &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Web
     </footer>
 </body>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Atualizar Horários</title>
-</head>
-<body>
-    <h1>Atualizar Horários</h1>
-    <form method="post">
-        <label for="hr_chegada">Horário de entrada:</label>
-        <input type="time" name="hr_chegada">
-        <br>
-        <label for="hr_saida">Horário de saída:</label>
-        <input type="time" name="hr_saida">
-        <br>
-        <button type="submit">Atualizar</button>
-    </form>
-    <a href="index3.php">Voltar</a>
-</body>
-</html>
