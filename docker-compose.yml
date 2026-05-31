@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: senha_admin_root
       MYSQL_DATABASE: project_pw3crud   # <- Mude para o nome que seu PHP espera
     ports:
-      - "3306:3306" # Permite que você acesse o banco pelo DBeaver, MySQL Workbench, etc.
+      - "3307:3306" # Permite que você acesse o banco pelo DBeaver, MySQL Workbench, etc.
     volumes:
       - dados_mysql:/var/lib/mysql
 
@@ -25,6 +25,8 @@ services:
       - DB_NAME=project_pw3crud
       - DB_USER=root
       - DB_PASS=senha_admin_root     # <- Passe a senha do root que você definiu acima
+    volumes:
+      - .:/var/www/html
     depends_on:
       - banco
 
