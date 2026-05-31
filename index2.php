@@ -20,7 +20,7 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body class="text-slate-800 font-sans min-h-screen">
     <header class="bg-sky-400 p-8 shadow-md">
         <div class="container mx-auto">
-            <h1 class="text-white text-3xl font-bold tracking-tight">Sistema de Funcionários</h1>
+            <h1 class="text-white text-3xl font-bold tracking-tight">Sistema BLUEY</h1>
             <p class="text-sky-50 mt-1 opacity-90">Gerenciamento de RH - Projeto PW3</p>
         </div>
     </header>
@@ -32,7 +32,7 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-6 border-b border-orange-50 flex justify-between items-center bg-white">
                 <h2 class="text-xl font-semibold text-slate-700">Tabela de Funcionários</h2>
                 <a href="create2.php" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg font-bold transition duration-300 shadow-sm flex items-center gap-2">
-                    <span class="text-lg">+</span> Adicionar Novo
+                    <span class="text-lg">+</span> Adicionar
                 </a>
             </div>
             

@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
 <body>
     <header class="bg-sky-400 p-8 shadow-md">
         <div class="container mx-auto">
-            <h1 class="text-white text-3xl font-bold tracking-tight">Novo Cadastro</h1>
+            <h1 class="text-white text-3xl font-bold tracking-tight">Funcionário</h1>
             <p class="text-sky-50 mt-1 opacity-90">Insira as informações do novo funcionário</p>
         </div>
     </header>
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
         <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden w-full max-w-md">
             
             <div class="p-6 border-b border-orange-50 bg-white">
-                <h2 class="text-xl font-semibold text-slate-700">Dados Pessoais</h2>
+                <h2 class="text-xl font-semibold text-slate-700">Dados</h2>
             </div>
     <form method="post" class="p-8 space-y-6">
       <div>
@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
       </div>
         <br>
       <div class="pt-4 flex flex-col gap-3">
-        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg shadow-sm transition duration-300">Adicionar funcionário</button>
+        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg shadow-sm transition duration-300">Adicionar</button>
         <a href="index2.php" class="w-full text-center text-slate-400 hover:text-slate-600 font-medium py-2 transition">Voltar</a>
       </div>
     </form>
