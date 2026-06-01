@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["senha"], $_POST["emai
             throw new Exception("Email ou senha inválidos");
         }
 
-        $_SESSION['usuario_id'] = $usuario->id;
-        $_SESSION['usuario_nome'] = $usuario->nome;
+        $_SESSION['idUser'] = $usuario->id;
+        $_SESSION['email'] = $usuario->email;
 
         header("Location: index.php?status=sucesso_login");
         exit;
