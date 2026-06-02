@@ -2,7 +2,7 @@
 $host = getenv('DB_HOST') ?: 'banco'; 
 $dbname = getenv('DB_NAME') ?: 'project_pw3crud';
 $user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: '';
+$pass = getenv('DB_PASS') ?: 'root';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);

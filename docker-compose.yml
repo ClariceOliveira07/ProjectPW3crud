@@ -1,17 +1,18 @@
-version: '3.8'
+
 services:
   # Serviço do Banco de Dados MySQL
   banco:
     image: mysql:8.0
-    container_name: crud_mysql_db
+    container_name: crud_mysql_pw
     restart: always
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: project_pw3crud   # <- Mude para o nome que seu PHP espera
     ports:
       - "3307:3306" # Permite que você acesse o banco pelo DBeaver, MySQL Workbench, etc.
     volumes:
       - dados_mysql:/var/lib/mysql
+     # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   # Serviço da sua Aplicação PHP
   web:
@@ -24,9 +25,23 @@ services:
       - DB_HOST=banco
       - DB_NAME=project_pw3crud
       - DB_USER=root
-      - DB_PASS=""     # <- Passe a senha do root que você definiu acima
+      - DB_PASS=root     # <- Passe a senha do root que você definiu acima
     volumes:
       - .:/var/www/html
+    depends_on:
+      - banco
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: crud_phpmyadmin_pw
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=banco
+      - PMA_USER=root
+      - PMA_PASSWORD=root
     depends_on:
       - banco
 
