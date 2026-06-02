@@ -1,4 +1,4 @@
-
+version: '3.8'
 services:
   # Serviço do Banco de Dados MySQL
   banco:
@@ -6,7 +6,7 @@ services:
     container_name: crud_mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: senha_admin_root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: project_pw3crud   # <- Mude para o nome que seu PHP espera
     ports:
       - "3307:3306" # Permite que você acesse o banco pelo DBeaver, MySQL Workbench, etc.
@@ -16,7 +16,7 @@ services:
   # Serviço da sua Aplicação PHP
   web:
     build: .
-    container_name: crud_php_app
+    container_name: crud_php_pw
     restart: always
     ports:
       - "8080:80" # Você vai acessar seu CRUD no navegador via http://localhost:8080
@@ -24,7 +24,7 @@ services:
       - DB_HOST=banco
       - DB_NAME=project_pw3crud
       - DB_USER=root
-      - DB_PASS=senha_admin_root     # <- Passe a senha do root que você definiu acima
+      - DB_PASS=""     # <- Passe a senha do root que você definiu acima
     volumes:
       - .:/var/www/html
     depends_on:

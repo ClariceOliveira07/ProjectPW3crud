@@ -1,5 +1,5 @@
 <?php
-$host = getenv('DB_HOST') ?: '127.0.0.1'; 
+$host = getenv('DB_HOST') ?: 'banco'; 
 $dbname = getenv('DB_NAME') ?: 'project_pw3crud';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';

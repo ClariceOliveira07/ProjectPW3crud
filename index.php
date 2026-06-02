@@ -1,6 +1,6 @@
 <?php
-
-require('protege.php'); 
+session_start();
+ 
 require_once('conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM categorias");
