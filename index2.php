@@ -1,11 +1,16 @@
 <?php
+session_start();
 
-require_once ('../conexao.php');
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once('../conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM funcionarios");
 $stmt->execute();   
 $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -39,33 +44,29 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </div>
         </div>
     </header>
-
-    <main class="container mx-auto py-10 px-4">
-        
-        <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden">
-            
+    <main class="container mx-auto py-10 px-4">      
+        <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden">           
             <div class="p-6 border-b border-orange-50 flex justify-between items-center bg-white">
                 <h2 class="text-xl font-semibold text-slate-700">Tabela de Funcionários</h2>
                 <a href="create2.php" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg font-bold transition duration-300 shadow-sm flex items-center gap-2">
                     <span class="text-lg">+</span> Adicionar
                 </a>
-            </div>
-            
+            </div>           
     <div class="overflow-x-auto">
       <table class="w-full text-left border-collapse">
         <thead class="bg-orange-50/50 text-slate-500 text-xs uppercase tracking-wider">
             <tr>
-                <th class="px-6 py-4 font-semibold">ID</th>
-                <th class="px-6 py-4 font-semibold">Nome</th>
-                <th class="px-6 py-4 font-semibold">Data de nascimento</th>
-                <th class="px-6 py-4 font-semibold">Ação</th>
+                <th class="px-6 py-4 font-semibold text-center">ID</th>
+                <th class="px-6 py-4 font-semibold text-center">Nome</th>
+                <th class="px-6 py-4 font-semibold text-center">Data de nascimento</th>
+                <th class="px-6 py-4 font-semibold text-center">Ação</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-orange-50">
             <?php foreach($inicio as $ini): ?>
             <tr class="hover:bg-sky-50/30 transition-colors">
-                <td class="px-6 py-4 text-sm text-slate-500"><?php echo $ini['id']; ?></td>
-                <td class="px-6 py-4 font-medium text-slate-700"><?php echo $ini['nome']; ?></td>
+                <td class="px-6 py-4 text-center text-sm text-slate-500"><?php echo $ini['id']; ?></td>
+                <td class="px-6 py-4 text-center font-medium text-slate-700"><?php echo $ini['nome']; ?></td>
                 <td class="px-6 py-4 text-center text-slate-600"><?php echo $ini['dt_nasc']; ?></td>
                 <td class="px-6 py-4 text-center">
                     <div class="flex justify-center gap-3">

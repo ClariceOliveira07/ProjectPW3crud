@@ -1,6 +1,12 @@
 <?php
+session_start();
 
-require_once ('../conexao.php');
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once('../conexao.php');
 
 if(isset($_GET['id'])) {
     $stmt = $conn->prepare("DELETE FROM funcionarios WHERE id = :id");
@@ -9,5 +15,4 @@ if(isset($_GET['id'])) {
     header('Location: index2.php');
     exit();
 }
-
 ?>
