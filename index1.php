@@ -1,6 +1,12 @@
 <?php
+session_start();
 
-require_once ('../conexao.php');
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once('../conexao.php');
 
 $stmt = $conn->prepare("SELECT * FROM setores");
 $stmt->execute();   
@@ -39,32 +45,28 @@ $inicio = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </div>
         </div>
     </header>
-
     <main class="container mx-auto py-10 px-4">
-        
         <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden">
-            
             <div class="p-6 border-b border-orange-50 flex justify-between items-center bg-white">
                 <h2 class="text-xl font-semibold text-slate-700">Tabela de Setores</h2>
                 <a href="create1.php" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg font-bold transition duration-300 shadow-sm flex items-center gap-2">
                     <span class="text-lg">+</span> Adicionar
                 </a>
             </div>
-            
     <div class="overflow-x-auto">
       <table class="w-full text-left border-collapse">
         <thead class="bg-orange-50/50 text-slate-500 text-xs uppercase tracking-wider">
             <tr>
-                <th class="px-6 py-4 font-semibold">ID</th>
-                <th class="px-6 py-4 font-semibold">Setor</th>
-                <th class="px-6 py-4 font-semibold">Ação</th>
+                <th class="px-6 py-4 font-semibold text-center">ID</th>
+                <th class="px-6 py-4 font-semibold text-center">Setor</th>
+                <th class="px-6 py-4 font-semibold text-center">Ação</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-orange-50">
             <?php foreach($inicio as $ini): ?>
             <tr class="hover:bg-sky-50/30 transition-colors">
-                <td class="px-6 py-4 text-sm text-slate-500"><?php echo $ini['id']; ?></td>
-                <td class="px-6 py-4 font-medium text-slate-700"><?php echo $ini['setor']; ?></td>
+                <td class="px-6 py-4 text-center text-sm text-slate-500"><?php echo $ini['id']; ?></td>
+                <td class="px-6 py-4 text-center font-medium text-slate-700"><?php echo $ini['setor']; ?></td>
                 <td class="px-6 py-4 text-center">
                     <div class="flex justify-center gap-3">
                         <a href="delete1.php?id=<?php echo $ini['id']; ?>" class="text-red-400 hover:text-red-600 font-bold text-sm transition" onclick="return confirm('Tem certeza que deseja deletar?')"><button>Deletar</button></a>

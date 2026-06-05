@@ -1,6 +1,12 @@
 <?php
+session_start();
 
-require_once ('../conexao.php');
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once('../conexao.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setor'])) {
     $stmt = $conn->prepare("INSERT INTO setores (setor) VALUES (:setor)");
@@ -28,11 +34,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setor'])) {
             <p class="text-sky-50 mt-1 opacity-90">Insira as informações</p>
         </div>
     </header>
-
-      <main class="container mx-auto py-10 px-4 flex justify-center">
-        
-        <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden w-full max-w-md">
-            
+      <main class="container mx-auto py-10 px-4 flex justify-center">     
+        <div class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden w-full max-w-md">         
             <div class="p-6 border-b border-orange-50 bg-white">
                 <h2 class="text-xl font-semibold text-slate-700">Dados</h2>
             </div>
