@@ -8,10 +8,12 @@ if (!isset($_SESSION['email'])) {
 
 require_once('../conexao.php');
 
+$id =isset($_GET['id']) ? $_GET['id'] : '';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     $stmt = $conn->prepare("UPDATE horarios SET hr_chegada = :hr_chegada, hr_saida = :hr_saida  WHERE id = :id");
     $stmt->bindValue(':hr_chegada', $_POST['hr_chegada']);
     $stmt->bindValue(':hr_saida', $_POST['hr_saida']);
+    $stmt->bindValue(':id', $id);
     $stmt->execute();
     header('Location: index3.php');
     exit();
