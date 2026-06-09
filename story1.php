@@ -8,9 +8,11 @@ if (!isset($_SESSION['email'])) {
 
 require_once('../conexao.php');
 
+$id =isset($_GET['id']) ? $_GET['id'] : '';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['setor'])) {
     $stmt = $conn->prepare("UPDATE setores SET setor = :setor WHERE id = :id");
     $stmt->bindValue(':setor', $_POST['setor']);
+    $stmt->bindValue(':id', $id);
     $stmt->execute();
     header('Location: index1.php');
     exit();

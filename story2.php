@@ -8,10 +8,12 @@ if (!isset($_SESSION['email'])) {
 
 require_once('../conexao.php');
 
+$id =isset($_GET['id']) ? $_GET['id'] : '';
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nome'])) {
     $stmt = $conn->prepare("UPDATE funcionarios SET nome = :nome, dt_nasc = :dt_nasc WHERE id = :id");
     $stmt->bindValue(':nome', $_POST['nome']);
     $stmt->bindValue(':dt_nasc', $_POST['dt_nasc']);
+    $stmt->bindValue(':id', $id);
     $stmt->execute();
     header('Location: index2.php');
     exit();
