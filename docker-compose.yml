@@ -1,31 +1,30 @@
 
 services:
-  # Serviço do Banco de Dados MySQL
+  
   banco:
     image: mysql:8.0
     container_name: crud_mysql_pw
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: project_pw3crud   # <- Mude para o nome que seu PHP espera
+      MYSQL_DATABASE: project_pw3crud   
     ports:
-      - "3307:3306" # Permite que você acesse o banco pelo DBeaver, MySQL Workbench, etc.
+      - "3307:3306" 
     volumes:
       - dados_mysql:/var/lib/mysql
-     # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-  # Serviço da sua Aplicação PHP
+    
+ 
   web:
     build: .
     container_name: crud_php_pw
     restart: always
     ports:
-      - "8080:80" # Você vai acessar seu CRUD no navegador via http://localhost:8080
+      - "8080:80" 
     environment:
       - DB_HOST=banco
       - DB_NAME=project_pw3crud
       - DB_USER=root
-      - DB_PASS=root     # <- Passe a senha do root que você definiu acima
+      - DB_PASS=root     
     volumes:
       - .:/var/www/html
     depends_on:
@@ -46,4 +45,4 @@ services:
       - banco
 
 volumes:
-  dados_mysql: # Garante que os dados do banco não sumam quando os containers pararem
+  dados_mysql: 

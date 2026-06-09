@@ -47,7 +47,7 @@ require_once('conexao.php');
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <a href="crud_funcionario/index2.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
+            <a href="../crud_funcionario/index2.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
                 <div class="w-12 h-12 bg-sky-100 text-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-sky-500 group-hover:text-white transition">
                     <span class="text-xl font-bold">👤</span>
                 </div>
@@ -55,7 +55,7 @@ require_once('conexao.php');
                 <p class="text-sm text-slate-400">Gerenciar o cadastro dos colaboradores.</p>
             </a>
 
-            <a href="crud_horario/index3.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
+            <a href="../crud_horario/index3.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
                 <div class="w-12 h-12 bg-sky-100 text-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-sky-500 group-hover:text-white transition">
                     <span class="text-xl font-bold">⏰</span>
                 </div>
@@ -63,7 +63,7 @@ require_once('conexao.php');
                 <p class="text-sm text-slate-400">Controlar jornadas de trabalho e escalas.</p>
             </a>
 
-            <a href="crud_setor/index1.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
+            <a href="../crud_setor/index1.php" class="bg-white p-6 rounded-xl shadow-sm border border-orange-100 hover:border-sky-300 hover:shadow-md transition group text-center block">
                 <div class="w-12 h-12 bg-sky-100 text-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-sky-500 group-hover:text-white transition">
                     <span class="text-xl font-bold">🏢</span>
                 </div>
